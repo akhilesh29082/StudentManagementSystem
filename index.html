@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Management System</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">S</div>
+        <div><strong>StudentHub</strong><span>Management Portal</span></div>
+      </div>
+      <div class="side-label">WORKSPACE</div>
+      <a class="nav-link active" href="#dashboard"><span>▦</span> Dashboard</a>
+      <a class="nav-link" href="#students"><span>♙</span> Students</a>
+      <a class="nav-link" href="#student-form"><span>＋</span> Add student</a>
+      <div class="sidebar-bottom">
+        <div class="side-label">ASSIGNMENT</div>
+        <p>JavaScript practical project</p>
+        <small>Arrays · JSON · Validation</small>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">STUDENT ADMINISTRATION</p>
+          <h1>Dashboard</h1>
+        </div>
+        <div class="profile">
+          <div class="profile-avatar">A</div>
+          <div><strong>Administrator</strong><span>Local workspace</span></div>
+        </div>
+      </header>
+
+      <section class="welcome-card" id="dashboard">
+        <div>
+          <p class="eyebrow light">OVERVIEW</p>
+          <h2>Manage your students, simply.</h2>
+          <p>Add, search, update, and organize student records from one place.</p>
+          <a class="primary-button" href="#student-form">＋ Add a student</a>
+        </div>
+        <div class="welcome-art" aria-hidden="true">
+          <div class="art-circle"></div>
+          <div class="art-card"><span>✓</span><div><b>Student records</b><small>Organized and validated</small></div></div>
+          <div class="art-dot dot-one"></div><div class="art-dot dot-two"></div>
+        </div>
+      </section>
+
+      <section class="stats-grid" aria-label="Student statistics">
+        <article class="stat-card">
+          <div class="stat-icon purple">♙</div><div><p>Total students</p><strong id="totalStudents">0</strong><small>All saved records</small></div>
+        </article>
+        <article class="stat-card">
+          <div class="stat-icon blue">▤</div><div><p>Departments</p><strong id="totalDepartments">0</strong><small>Unique departments</small></div>
+        </article>
+        <article class="stat-card">
+          <div class="stat-icon green">✓</div><div><p>Average CGPA</p><strong id="averageMarks">—</strong><small>Out of 100</small></div>
+        </article>
+      </section>
+
+      <section class="content-grid">
+        <article class="panel form-panel" id="student-form">
+          <div class="panel-heading">
+            <div><p class="eyebrow">RECORD MANAGEMENT</p><h2 id="formTitle">Add new student</h2></div>
+            <span class="step-badge">FORM</span>
+          </div>
+          <p class="panel-subtitle">Enter student details. All fields are required.</p>
+          <div id="formMessage" class="message" role="alert" aria-live="polite"></div>
+          <form id="studentForm" novalidate>
+            <input type="hidden" id="editingId" />
+            <div class="field-grid">
+              <div class="field">
+                <label for="name">Full name <span>*</span></label>
+                <input id="name" name="name" type="text" placeholder="e.g. Aarav Sharma" maxlength="60" />
+                <small class="field-hint">Enter the student's full name.</small>
+              </div>
+              <div class="field">
+                <label for="prn">PRN / Student ID <span>*</span></label>
+                <input id="prn" name="prn" type="text" placeholder="e.g. 202401040000" maxlength="20" />
+                <small class="field-hint">Must be unique for each student.</small>
+              </div>
+              <div class="field">
+                <label for="email">Email address <span>*</span></label>
+                <input id="email" name="email" type="email" placeholder="student@mitaoe.ac.in" maxlength="100" />
+              </div>
+              <div class="field">
+                <label for="department">Department <span>*</span></label>
+                <select id="department" name="department">
+                  <option value="">Select department</option>
+                  <option>Computer Engineering</option>
+                  <option>Information Technology</option>
+                  <option>Electronics Engineering</option>
+                  <option>Mechanical Engineering</option>
+                  <option>Civil Engineering</option>
+                  <option>Artificial Intelligence &amp; Data Science</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="year">Academic year <span>*</span></label>
+                <select id="year" name="year">
+                  <option value="">Select year</option>
+                  <option>First Year</option><option>Second Year</option>
+                  <option>Third Year</option><option>Final Year</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="marks">Current CGPA(0-10) <span>*</span></label>
+                <input id="marks" name="marks" type="number" placeholder="e.g. 8.5" min="0" max="10" step="0.01" />
+              </div>
+            </div>
+            <div class="form-actions">
+              <button class="primary-button" type="submit" id="saveButton">Save student</button>
+              <button class="secondary-button hidden" type="button" id="cancelEditButton">Cancel edit</button>
+              <button class="text-button" type="reset" id="resetButton">Clear form</button>
+            </div>
+          </form>
+          <div class="tech-note"><strong>JavaScript concepts:</strong> form events, validation, arrays, objects, JSON, and localStorage.</div>
+        </article>
+
+        <article class="panel tips-panel">
+          <div class="panel-heading"><div><p class="eyebrow">QUICK GUIDE</p><h2>Built-in features</h2></div><div class="guide-icon">✦</div></div>
+          <div class="feature-item"><div class="feature-number">01</div><div><strong>Validate before saving</strong><p>Checks required fields, email format, CGPA, and duplicate PRNs.</p></div></div>
+          <div class="feature-item"><div class="feature-number">02</div><div><strong>Array and JSON storage</strong><p>Student objects are stored in an array and serialized as JSON.</p></div></div>
+          <div class="feature-item"><div class="feature-number">03</div><div><strong>Persistent records</strong><p>Browser localStorage keeps records after refreshing the page.</p></div></div>
+          <div class="feature-item"><div class="feature-number">04</div><div><strong>CRUD operations</strong><p>Create, read, update, and delete student records.</p></div></div>
+          <div class="json-preview"><div class="json-header"><span></span><span></span><span></span><b>student.json · example</b></div><pre>{
+  "prn": "202401001",
+  "name": "Aarav Sharma",
+  "cgpa": 8.5
+}</pre></div>
+        </article>
+      </section>
+
+      <section class="panel table-panel" id="students">
+        <div class="panel-heading table-heading">
+          <div><p class="eyebrow">STUDENT DIRECTORY</p><h2>All students <span class="count-pill" id="tableCount">0</span></h2></div>
+          <button class="secondary-button" id="exportButton" type="button">↓ Export JSON</button>
+        </div>
+        <div class="table-tools">
+          <div class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Search by name, PRN, email, or department..." /></div>
+          <select id="departmentFilter" aria-label="Filter by department"><option value="">All departments</option></select>
+          <select id="sortSelect" aria-label="Sort students"><option value="newest">Newest first</option><option value="name">Name A–Z</option><option value="marksHigh">CGPA: high to low</option><option value="marksLow">CGPA: low to high</option></select>
+        </div>
+        <div id="tableMessage" class="message" role="status" aria-live="polite"></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>STUDENT</th><th>PRN / ID</th><th>DEPARTMENT</th><th>YEAR</th><th>CGPA</th><th>ACTIONS</th></tr></thead>
+            <tbody id="studentTableBody"></tbody>
+          </table>
+          <div id="emptyState" class="empty-state"><div class="empty-icon">♙</div><h3>No student records yet</h3><p>Add your first student using the form above.</p><a href="#student-form" class="secondary-button">Add first student</a></div>
+        </div>
+        <div class="table-footer"><span id="resultSummary">Showing 0 students</span><span>Data saved in this browser</span></div>
+      </section>
+      <footer>StudentHub <span>·</span> JavaScript Web Application Assignment</footer>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
