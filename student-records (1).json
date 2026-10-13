@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "Akhilesh Kombe",
+    "prn": "202401040244",
+    "email": "202401040244@mitaoe.ac.in",
+    "department": "Computer Engineering",
+    "year": "Third Year",
+    "marks": 8.02,
+    "updatedAt": "2026-10-13T09:29:13.493Z"
+  },
+  {
+    "id": 2,
+    "name": "Abhishek More",
+    "prn": "202401040422",
+    "email": "202401040422@mitaoe.ac.in",
+    "department": "Computer Engineering",
+    "year": "Third Year",
+    "marks": 8.5,
+    "updatedAt": "2026-10-13T09:30:35.306Z"
+  },
+  {
+    "id": 3,
+    "name": "Abhishek Muley",
+    "prn": "202401040423",
+    "email": "202401040423@mitaoe.ac.in",
+    "department": "Information Technology",
+    "year": "Second Year",
+    "marks": 7.5,
+    "updatedAt": "2026-10-13T09:31:55.821Z"
+  },
+  {
+    "id": 4,
+    "name": "Akshay Jaiswal",
+    "prn": "202401040426",
+    "email": "202401040426@mitaoe.ac.in",
+    "department": "Mechanical Engineering",
+    "year": "Final Year",
+    "marks": 6,
+    "updatedAt": "2026-10-13T09:36:30.070Z"
+  }
+]
